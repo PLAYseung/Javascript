@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-4</title>
+</head>
+<body>
+    <script>
+        // 매개변수가 있는 함수
+        function check_num(num) {
+            if(num%2){
+                document.write(num + '는 홀수 입니다<br/>');
+            } else{
+                document.write(num + '는 짝수 입니다<br/>');
+            }
+        }
+
+        // 사용자로부터 값 입력
+        var num = prompt('숫자를 입력하세요');
+
+        check_num(num); // 함수 호출 
+    </script>
+</body>
+</html>
