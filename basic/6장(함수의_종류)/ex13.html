@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백함수-1(일반함수로 풀이)</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // callback이 들어와서 결과값을 callback함수에 매개변수로 하여
+    // 또 다른 함수를 호출하게 한다
+    function calculator(op, num1, num2,callback){
+
+        // 로직구현부
+        var result ="";
+
+        switch(op){
+            case "+":
+                result = add(num1,num2);
+                break
+            case "-":
+                result = sub(num1,num2);
+                break
+            case "*":
+                result = mul(num1,num2);
+                break
+            case "/":
+                result = div(num1,num2);
+                break
+            default:
+                result = '지원하지 않는 연산자암! ';
+        }
+
+        // switch 문에서 사용한 각각의 함수를 중첩함수로 구현
+        function add(num1, num2){
+            return num1+num2;       
+        }
+        function sub(num1, num2){
+            return num1-num2;       
+        }
+        function mul(num1, num2){
+            return num1*num2;       
+        }
+        function div(num1, num2){
+            return num1/num2;        
+        }
+        // 콜백함수 호출하고 있다
+        callback(result,print2)
+    }
+
+    // 각각 로직 처리 부분을 함수로 만들었다.
+    function print1(result){
+        document.write(' print1. 주어진 두 수의 연산 결과 : ' + result + '<br/>');
+    }
+
+    function print2(result){
+        document.write(' print2. 정답 : ' + result + '<br/>');
+    }
+    
+    function print3(result){
+        document.write(' print3. 결과 : ' + result + '<br/>');
+    }
+
+    // 로직 구현은 하나로 가져간 형태
+    // 로직 처리부분은 3가지형태로 나눴다
+    // 콜백함수의 장점은 위와 같이 구현, 처리하는 부분을 분리 유지보수가 편리
+    // 유지보수 편리, 가독성도 좋음
+    calculator('-',500,300,print1);
+    calculator('-',500,300,print2);
+    calculator('-',500,300,print3);
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백함수-4(콜백함수 풀이)</title>
+    <script src="libs/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+    <button id="startBtn">시작</button>
+</body>
+<script>
+    $(document).ready(function(){
+        // 함수를 시작과 동시에 호출하고 있다
+        checkCnt(showAlert);
+    });
+
+    // 일반함수 (로직처리 부분)
+    function showAlert(){
+        alert('완료되었습니다');
+    }
+
+    // 콜백함수를 이용한 풀이
+    function checkCnt(callback){
+        var cnt=0;
+        $('#startBtn').click(function(){
+            cnt++;
+            if (cnt>=5){
+                callback();
+            }
+        });
+    }
+</script>
+</html>

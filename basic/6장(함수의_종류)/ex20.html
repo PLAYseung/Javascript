@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로저함수-3</title>
+    <link rel="stylesheet" href="css/menuTab.css">
+    <script src="libs/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+    <ul class="tab-menu" id="tabmenu1">
+        <li class="menuitem1"></li>
+        <li class="menuitem2"></li>
+        <li class="menuitem3"></li>
+        <li class="menuitem4"></li>
+        <li class="menuitem5"></li>
+        <li class="menuitem6"></li>
+    </ul>
+</body>
+<script>
+    $(document).ready(function(){
+        // tabMenu가 실행될수 있도록 함수 호출
+        tabMenu('#tabmenu1 li');
+    });
+
+    function tabMenu(selector){
+        // selectorMenuItem는 지역변수 이다
+        var $selectorMenuItem = null;
+
+        $(selector).click(function(){
+            // selectorMenuItem을 계속 사용하고 있어서 메모리에서 제거되지 않는다.
+            // 클로저 현상이 나타나고 있다
+            if($selectorMenuItem != null){
+                $selectorMenuItem.removeClass('select');
+            }
+            $selectorMenuItem = $(this);
+            $selectorMenuItem.addClass('select');
+        });
+    }
+</script>
+</html>
