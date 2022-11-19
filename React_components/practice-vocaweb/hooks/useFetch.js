@@ -1,0 +1,18 @@
+import { useEffect, useState } from 'react';
+
+export default (url) => {
+
+    let [data, setData] = useState([]);
+
+    useEffect(()=>{
+        fetch(url)
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            setData(data);
+        });
+    },[url]);
+
+    return data;
+}
