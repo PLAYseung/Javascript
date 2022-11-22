@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String class -2(indexOf())</title>
+</head>
+<body>
+</body>
+<script>
+    // 문자열 위치를 알아내기
+    var str = window.prompt();
+    // 해당하는 문자(열)을 포함하고 있으면 그 위치를 리턴
+    // 포함하지 않는다면 -1 리턴
+    var index = str.indexOf("yes");
+
+    if (index >= 0 ){
+        alert('해당하는 문자열의 위치는 '+index+' 입니다');
+    }
+    else{
+        alert('해당하는 문자열이 없습니다');
+    }
+</script>
+</html>
