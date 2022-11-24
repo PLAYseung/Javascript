@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String class-9(왼쪽만 공백제거)</title>
+    <script src="libs/jquery-3.6.1.min.js"></script>
+    <style>
+        body {
+            font-size: 20px;
+        }
+        #input{
+            width: 300px;
+        }
+        #output{
+            width: 600px;
+            height: 200px;
+            border: 2px solid red;
+            text-align: left;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" id="input">
+        <button id="confirm">확인</button>
+    </div>    
+    <textarea id="output">실행결과</textarea>
+</body>
+<script>
+    $(document).ready(()=>{
+        var $output = $('#output');
+        var $input = $('#input');
+
+        $('#confirm').click(()=>{
+            // 입력한 값을 알아내기
+            var value = $input.val();
+
+            // 앞쪽 공백문자 제거
+            var result = ltrim(value);
+            $output.html(result);
+        });
+    })
+
+    // 뒷쪽 공백 제거 함수
+    function ltrim(str){
+        // 문자열이 없는 경우
+        if(str.length <= 0){
+            return "";
+        }
+
+        // 뒤쪽 첫번째 문자가 공백인지 확인
+        var firstchar = str.charAt(str.length-1);
+        if (firstchar != " "){
+            return str;
+        }
+        
+        var index;
+        for (index=str.length-1;index>=0;index--){
+            var ch = str.charAt(index);
+            if(ch != " "){
+                index++;
+                break;
+            }
+        }
+
+        // 0 번째 부터 인덱스까지 문자열을 반환
+        var result = str.slice(0,index);
+
+        return result
+    }
+</script>
+</html>
