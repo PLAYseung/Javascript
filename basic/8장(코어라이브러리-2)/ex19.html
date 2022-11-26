@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array class (정렬 - 숫자)</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // sort()는 문자열 기준으로 만들어진 메서드이기 때문에 숫자정렬 시 정렬기준을 제시해야 한다
+
+    var numbers = [6,1,7,34,373,4];
+    document.write(" 실행 전 : " + numbers.join(" ") + "<br>");
+    
+    numbers.sort((a,b)=>{
+        if (a>b) return -1;
+        if (a<b) return 1;
+    });
+    document.write("내림차순 정렬 후 : " + numbers.join(" ") + "<br>");
+
+
+    var numbers = [6,1,7,34,373,4];
+    document.write(" 실행 전 : " + numbers.join(" ") + "<br>");
+    
+    numbers.sort((a,b)=>{
+        if (a>b) return 1;
+        if (a<b) return -1;
+    });
+    document.write("오름차순 정렬 후 : " + numbers.join(" ") + "<br>");
+
+</script>
+</html>
