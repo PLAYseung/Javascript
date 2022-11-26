@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array class (length, 배열 요소, join()) </title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 리터럴 형태로 String 타입의 배열을 만들고 있다
+    var clients = ['client1','client2','client3'];
+    document.write("clients 배열의 크기 : " + clients.length + '<br>'+ '<br>');
+    
+    // 배열의 요소에 접근하여 출력하기
+    for(var i=0; i<clients.length;i++){
+        // 배열 요소에 접근하여 그 값을 저장하고 있는 형태
+        var client = clients[i]
+        document.write(`client[${i}] 배열의 크기 : ` + client + '<br>');
+    }
+
+    // join()는 배열의 요소들을 구분자를 사이로 연결하여 문자열로 출력하는 메서드
+    // 기본 값은 , 이다
+    var str = clients.join(" / ");
+    document.write('<br>' + str)
+
+</script>
+</html>
